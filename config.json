@@ -25,6 +25,10 @@
         "Unblock_Japan": {
             "enabled": true,
             "medias": {
+                "Netflix": {
+                    "enabled": true,
+                    "public_config": "jp_dns"
+                },
                 "Dazn": {
                     "enabled": true,
                     "public_config": "jp_dns"

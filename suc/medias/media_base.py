@@ -32,7 +32,7 @@ class MediaBase(ABC):
         self._dns_create_connection = _dns_create_connection
 
     def _post(self, url_override: str = "", data: dict = {}, headers: dict = {}, json: dict = {}) -> requests.Response:
-        if not self._url:
+        if not self._url and not url_override:
             raise ValueError("URL unspecified")
 
         h = {"User-Agent": self._user_agent}
@@ -54,7 +54,7 @@ class MediaBase(ABC):
         return resp
 
     def _get(self, url_override: str = "", headers: dict = {}) -> requests.Response:
-        if not self._url:
+        if not self._url and not url_override:
             raise ValueError("URL unspecified")
 
         h = {"User-Agent": self._user_agent}

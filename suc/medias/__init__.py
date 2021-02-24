@@ -9,7 +9,7 @@ from .abematv import AbemaTV as _AbemaTV
 from .cygames import PCRJP as _PCRJP
 from .kadokawa import KanColle as _KanColle
 from .bbc import BBC as _BBC
-from .netflix import NetflixSelenium as _NetflixSelenium
+from .netflix import NetflixSelenium as _NetflixSelenium, NetflixV2 as _NetflixV2
 from .dazn import Dazn as _Dazn
 from .hulu import HuluJP as _HuluJP
 from .disney_plus import DisneyPlus as _DisneyPlus
@@ -28,7 +28,8 @@ Medias = {
     "PCR JP": _PCRJP,
     "KanColle": _KanColle,
     "BBC": _BBC,
-    "Netflix": _NetflixSelenium,
+    "Netflix": _NetflixV2,
+    "Netflix Selenium": _NetflixSelenium,
     "Dazn": _Dazn,
     "Hulu JP": _HuluJP,
     "Disney Plus": _DisneyPlus,

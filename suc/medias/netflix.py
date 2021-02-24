@@ -9,9 +9,67 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
-from .media_base import MediaBaseSelenium
-from ..types.errors.requests import ResponseInvalid
+from .media_base import MediaBaseSelenium, MediaBase
+from ..types.errors.requests import ResponseInvalid, StatusCodeInvalid
 
+
+_ERR_NON_ERROR = 0
+_ERR_NOT_AVAILABLE = 1
+_ERR_NOT_FOUND_OR_FORBIDDEN = 2
+
+_VERIFY_AREA_AVAILABLE_MID = 80018499
+_VERIFY_NETFLIX_ORIGINALS_MID = 80197526
+_AREA_MIDS = {
+    "Common": 70143836
+}
+
+
+# Thanks for sjlleo's project (https://github.com/sjlleo/netflix-verify)
+class NetflixV2(MediaBase):
+    def __init__(self, config: dict = {}):
+        super().__init__(config)
+        self._base_url = "https://www.netflix.com/title/"
+
+    def _verify_response(self, mid: int) -> int:
+        resp = self._get(url_override=self._base_url + str(_VERIFY_AREA_AVAILABLE_MID))
+        if resp.status_code != 200:
+            raise StatusCodeInvalid(resp.status_code)
+
+        resp_text = resp.text
+        if "Not Available" in resp_text:
+            return _ERR_NOT_AVAILABLE
+        
+        if "page-404" in resp_text or "NSEZ-403" in resp_text:
+            return _ERR_NOT_FOUND_OR_FORBIDDEN
+
+        return _ERR_NON_ERROR
+
+    def run(self) -> bool:
+        logging.info("Checking Netflix (Version 2)")
+        
+        # Verify area available
+        logging.info("Verifing area")
+        if self._verify_response(_VERIFY_AREA_AVAILABLE_MID) == _ERR_NOT_AVAILABLE:
+            logging.warning("Area not available")
+            return False
+
+        logging.info("Area verified")
+
+        # Verify Netflix Originals
+        logging.info("Verifing Netflix Originals")
+        if self._verify_response(_VERIFY_NETFLIX_ORIGINALS_MID) != _ERR_NON_ERROR:
+            logging.warning("Unable to unblock copyright strictly Netflix Originals")
+            return False
+
+        logging.info("Netflix Originals verified")
+
+        # Verify common
+        logging.info("Verifing common movies")
+        if self._verify_response(_AREA_MIDS["Common"]) != _ERR_NON_ERROR:
+            logging.warning("Unable to unblock common movies")
+            return False
+        
+        return True
 
 class NetflixSelenium(MediaBaseSelenium):
     def __init__(self, config: dict = {}):

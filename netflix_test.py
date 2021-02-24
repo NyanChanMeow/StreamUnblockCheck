@@ -5,7 +5,7 @@ import os
 import logging
 import requests
 
-from suc import medias
+from suc.medias.netflix import NetflixV2
 
 if not os.path.exists("logs"):
     os.mkdir("logs")
@@ -25,5 +25,8 @@ logging.basicConfig(
 
 if __name__ == "__main__":
     logging.info("Starting test")
-    nf = medias.Medias["Netflix"]()
-    nf.run()
+    nf = NetflixV2()
+    if nf.run():
+        logging.info("Netflix: OK")
+    else:
+        logging.warning("Netflix: Bad")

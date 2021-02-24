@@ -4,6 +4,7 @@
 GPL v3
 
 ## 支持列表
+- Netflix
 - HBO Now
 - HBO Max
 - 巴哈姆特动画疯
@@ -25,5 +26,9 @@ GPL v3
 
 - [BGP Shop](https://shop.bgp.sh/cart.php)
 - [LemonBench](https://github.com/LemonBench/LemonBench)
+- [netflix-verify](https://github.com/sjlleo/netflix-verify)
+
+## 捐赠
+- Monero (XMR): `88F6AYsC46SDdiC1cg5TDQV7aKbXQ8zVZ79oYfHfXpY5DbbAyo1eT5eScuUjEAFK3jLjZm3QMWLoHb5BNybsawT4PXare3G`
 
 ## 其他内容待补全，可参考 `config.json`
