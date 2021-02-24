@@ -1,0 +1,91 @@
+{
+    "prometheus_host": "0.0.0.0",
+    "prometheus_port": 10086,
+    "interval": 300,
+    "public_configs": {
+        "jp_dns": {
+            "dns": "1.1.1.1"
+        },
+        "tw_dns": {
+            "dns": "1.1.1.1"
+        },
+        "us_disneyplus": {
+            "dns": "1.1.1.1",
+            "authorization": "Bearer ZGlzbmV5JmJyb3dzZXImMS4wLjA.Cu56AgSfBTDag5NiRA81oLHkDZfu5L3CKadnefEAY84",
+            "raw_data": "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Atoken-exchange&latitude=0&longitude=0&platform=browser&subject_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiNjUwOTk1Ny04N2M4LTRiNjItOTc5Ny0zMWU4NzVlMTBkMzUiLCJhdWQiOiJ1cm46YmFtdGVjaDpzZXJ2aWNlOnRva2VuIiwibmJmIjoxNTk3NDUxNzgyLCJpc3MiOiJ1cm46YmFtdGVjaDpzZXJ2aWNlOmRldmljZSIsImV4cCI6MjQ2MTQ1MTc4MiwiaWF0IjoxNTk3NDUxNzgyLCJqdGkiOiI2M2ZhYWIxZS0yNjFkLTQwZGEtOTU1NS03OTI5OWU1NjcyYTUifQ.yBtIsGlB44yV2sJPBK3M0nuSoaSESXW6DodWJbxRSklBPl0XIXegvP2-IIpPelo5lOMpUJa2YaxUnqzCXO37OA&subject_token_type=urn%3Abamtech%3Aparams%3Aoauth%3Atoken-type%3Adevice"
+        },
+        "us_dns": {
+            "dns": "1.1.1.1"
+        },
+        "hk_dns": {
+            "dns": "1.1.1.1"
+        }
+    },
+    "tasks": {
+        "Unblock_Japan": {
+            "enabled": true,
+            "medias": {
+                "Dazn": {
+                    "enabled": true,
+                    "public_config": "jp_dns"
+                },
+                "Hulu JP": {
+                    "enabled": true,
+                    "public_config": "jp_dns"
+                },
+                "PCR JP": {
+                    "enabled": true,
+                    "public_config": "jp_dns"
+                }
+            }
+        },
+        "Unblock_Taiwan": {
+            "enabled": true,
+            "medias": {
+                "Bahamute Anime": {
+                    "public_config": "tw_dns"
+                },
+                "Bilibili HK/MO/TW": {
+                    "public_config": "tw_dns"
+                },
+                "Bilibili TW Only": {
+                    "public_config": "tw_dns"
+                },
+                "Line TV": {
+                    "public_config": "tw_dns"
+                }
+            }
+        },
+        "Unblock_US": {
+            "enabled": true,
+            "medias": {
+                "Disney Plus": {
+                    "public_config": "us_disneyplus"
+                },
+                "HBO Max": {
+                    "enabled": true,
+                    "public_config": "us_dns"
+                },
+                "HBO Now": {
+                    "enabled": true,
+                    "public_config": "us_dns"
+                },
+                "ABC": {
+                    "enabled": true,
+                    "public_config": "us_dns"
+                }
+            }
+        },
+        "Unblock_HK": {
+            "enabled": true,
+            "medias": {
+                "Viu.com": {
+                    "public_config": "hk_dns"
+                },
+                "Bilibili HK/MO/TW": {
+                    "public_config": "hk_dns"
+                }
+            }
+        }
+    }
+}
