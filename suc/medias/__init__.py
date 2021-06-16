@@ -6,7 +6,7 @@ from .bahamute_anime import BahamuteAnime as _BahamuteAnime
 from .bilibili import BilibiliHKMOTW as _BilibiliHKMOTW
 from .bilibili import BilibiliTWOnly as _BilibiliTWOnly
 from .abematv import AbemaTV as _AbemaTV
-from .cygames import PCRJP as _PCRJP
+from .cygames import PCRJP as _PCRJP, UmaJP as _UmaJP
 from .kadokawa import KanColle as _KanColle
 from .bbc import BBC as _BBC
 from .netflix import NetflixSelenium as _NetflixSelenium, NetflixV2 as _NetflixV2
@@ -26,6 +26,7 @@ Medias = {
     "Bilibili TW Only": _BilibiliTWOnly,
     "AbemaTV": _AbemaTV,
     "PCR JP": _PCRJP,
+    "UMA JP": _UmaJP,
     "KanColle": _KanColle,
     "BBC": _BBC,
     "Netflix": _NetflixV2,

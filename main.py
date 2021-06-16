@@ -4,7 +4,6 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import time
 import os
 import logging
-import requests
 from prometheus_client import start_http_server
 
 from suc import medias
