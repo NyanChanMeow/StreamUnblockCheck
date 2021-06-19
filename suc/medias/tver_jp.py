@@ -10,21 +10,11 @@ class TVerJP(MediaBase):
     def __init__(self, config: dict = {}):
         super().__init__(config)
         self._url = config["url"]
-        self._url_js = config["url_js"]
+        self._policy_key = config["pk"]
 
-    def run(self) -> bool:
-        resp_js = self._get(url_override = self._url_js)
-        policy_key = ""
-        if resp_js.status_code == 200:
-            res = re.findall(r'policyKey\:\".*?(?=")', resp_js.text)
-            if not res:
-                raise ResponseInvalid("PolicyKey not found")
-            policy_key = res[0][11:]
-        else:
-            raise StatusCodeInvalid(resp_js.status_code)
-        
+    def run(self) -> bool:        
         headers = {
-            "Accept": "application/json;pk={}".format(policy_key),
+            "Accept": "application/json;pk={}".format(self._policy_key),
             "Origin": "https://tver.jp",
             "Referer": "https://tver.jp/",
             "Pargma": "no-cache",

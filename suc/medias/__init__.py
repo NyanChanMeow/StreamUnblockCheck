@@ -17,6 +17,8 @@ from .viu_com import ViuCom as _ViuCom
 from .tver_jp import TVerJP as _TVerJP
 from .line_tv import LineTV as _LineTV
 from .abc import ABCCom as _ABCCom
+from .mytvsuper import MyTVSuper as _MyTVSuper
+from .paravi import Paravi as _Paravi
 
 Medias = {
     "HBO Now": _HBONow,
@@ -37,5 +39,7 @@ Medias = {
     "Viu.com": _ViuCom,
     "TVer JP": _TVerJP,
     "Line TV": _LineTV,
-    "ABC": _ABCCom
+    "ABC": _ABCCom,
+    "MyTVSuper": _MyTVSuper,
+    "Paravi": _Paravi
 }

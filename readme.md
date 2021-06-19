@@ -19,9 +19,11 @@ GPL v3
 - Hulu JP
 - Disney Plus
 - Viu
-- TVer （检测参数变化较为频繁）
+- TVer
+- Paravi
 - LineTV
 - ABC
+- MyTVSuer
 
 ## 鸣谢
 

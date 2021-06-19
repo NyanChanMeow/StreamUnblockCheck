@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import re
-import json
-import requests
 
 from .media_base import MediaBase
 from ..types.errors.requests import StatusCodeInvalid, ResponseInvalid
