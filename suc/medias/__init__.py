@@ -19,6 +19,7 @@ from .line_tv import LineTV as _LineTV
 from .abc import ABCCom as _ABCCom
 from .mytvsuper import MyTVSuper as _MyTVSuper
 from .paravi import Paravi as _Paravi
+from .niconico import Niconico as _Niconico
 
 Medias = {
     "HBO Now": _HBONow,
@@ -41,5 +42,6 @@ Medias = {
     "Line TV": _LineTV,
     "ABC": _ABCCom,
     "MyTVSuper": _MyTVSuper,
-    "Paravi": _Paravi
+    "Paravi": _Paravi,
+    "Niconico": _Niconico
 }
