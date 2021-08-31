@@ -1,3 +1,5 @@
+# Discontinued, moved to https://github.com/NyanChanMeow/region_restriction_check-go
+
 # 流媒体解锁测试 （对接 Prometheus）
 
 ## 许可证
